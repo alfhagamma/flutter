@@ -10,7 +10,7 @@ class AboutPage extends StatelessWidget {
     return Scaffold(
       drawer: const DrawerApp(),
       appBar:  AppBar(
-        title: const Text("Home Page"),
+        title: const Text("About page"),
         backgroundColor: Colors.blue,
         actions: <Widget>[
           IconButton(

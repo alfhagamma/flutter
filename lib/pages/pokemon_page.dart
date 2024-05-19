@@ -20,7 +20,6 @@ class PokemonData {
   const PokemonData({
     required this.next,
     required this.results,
-
   });
 
   factory PokemonData.fromJson(Map<String, dynamic> json) {
@@ -38,14 +37,16 @@ class PokemonData {
   }
 }
 
-class TestPage extends StatefulWidget {
-  const TestPage({super.key});
+class PokemonPage extends StatefulWidget {
+
+  const PokemonPage({super.key});
 
   @override
-  State<TestPage> createState() => _TestPageState();
+  State<PokemonPage> createState() => _PokemonPageState();
 }
 
-class _TestPageState extends State<TestPage> {
+class _PokemonPageState extends State<PokemonPage> {
+  
   late Future<PokemonData> futurePokemon;
 
   @override
@@ -64,10 +65,9 @@ class _TestPageState extends State<TestPage> {
       body: Center(
         child: FutureBuilder<PokemonData>(
           future: futurePokemon,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              final album = snapshot.data!;
-              final results = album.results;
+          builder: (context, asyncData) {
+            if (asyncData.hasData) {
+              final results = asyncData.data!.results;
               return ListView.builder(
                 itemCount: results.length,
                 itemBuilder: (context, index) {
@@ -77,8 +77,8 @@ class _TestPageState extends State<TestPage> {
                   );
                 },
               );
-            } else if (snapshot.hasError) {
-              return Text('${snapshot.error}');
+            } else if (asyncData.hasError) {
+              return Text('${asyncData.error}');
             }
             return const CircularProgressIndicator();
           },

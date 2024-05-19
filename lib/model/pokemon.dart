@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import '../widgets/drawer_app.dart';
 import 'package:http/http.dart' as http;
@@ -35,12 +34,12 @@ class _PokemonState extends State<Pokemon> {
       ),
       drawer: const DrawerApp(),
       body: Center(
-        child: Expanded(
+        //child: Expanded(
           child: ListView.builder(
             itemCount: pokemon.length,
             itemBuilder: (context, index) => Text(pokemon[index]['name'])
           ),
-        ),
+        //),
       ),
     );
   }

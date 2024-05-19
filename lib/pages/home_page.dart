@@ -28,7 +28,6 @@ class HomePage extends StatelessWidget {
               child: ListView.builder(
                 itemCount: 30,
                 itemBuilder: (context, index) => Text('Index $index')
-                
               ),
             ),
           ],

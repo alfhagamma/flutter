@@ -58,10 +58,21 @@ class _DrawerAppState extends State<DrawerApp> {
                 IconButton(
                   icon: const Icon(Icons.textsms),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/test');
+                    Navigator.pushNamed(context, '/pokemonPage');
                   },
                 ),
-                const Text('Test'),
+                const Text('Pokemon Page'),
+              ]
+            ),
+            Row(
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.account_balance_outlined),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/pokemonListPage');
+                  },
+                ),
+                const Text('Pokemon List Page'),
               ]
             ),
           ],
